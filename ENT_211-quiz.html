@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENT 211 — Entrepreneurship Review</title>
+<style>
+  :root{
+    --paper: #F6F3EC;
+    --paper-raised: #FFFFFF;
+    --ink: #23281F;
+    --ink-soft: #5B6156;
+    --rule: #D9D3C4;
+    --ledger: #2E5C46;
+    --ledger-dim: #E4ECE6;
+    --stamp: #B5482F;
+    --stamp-dim: #F6E4DE;
+    --gold: #A9852F;
+    serif-headline: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    margin:0;
+    padding:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    padding: 48px 20px 80px;
+  }
+
+  .sheet{
+    width:100%;
+    max-width: 640px;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+  }
+
+  .masthead .code{
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--ledger);
+    font-weight: 600;
+  }
+
+  .masthead h1{
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.15;
+    margin: 6px 0 8px;
+    color: var(--ink);
+  }
+
+  .masthead p{
+    margin:0;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    line-height: 1.5;
+    max-width: 46ch;
+  }
+
+  /* ---------- progress ledger ---------- */
+  .ledger-row{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom: 22px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+
+  .ledger-row .count{
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .track{
+    height: 3px;
+    background: var(--rule);
+    margin-bottom: 34px;
+    position: relative;
+    overflow: hidden;
+  }
+  .track > div{
+    position:absolute;
+    top:0; left:0; bottom:0;
+    background: var(--ledger);
+    transition: width .35s ease;
+  }
+
+  /* ---------- question card ---------- */
+  .card{
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    padding: 32px 30px;
+  }
+
+  .qnum{
+    font-size: 12.5px;
+    color: var(--ledger);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+  }
+
+  .prompt{
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 0 0 26px;
+    color: var(--ink);
+  }
+
+  .options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom: 6px;
+  }
+
+  .option{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    text-align:left;
+    width:100%;
+    background: transparent;
+    border: 1px solid var(--rule);
+    padding: 13px 16px;
+    font-size: 15.5px;
+    line-height:1.45;
+    color: var(--ink);
+    cursor:pointer;
+    font-family: inherit;
+    transition: border-color .15s ease, background .15s ease;
+  }
+
+  .option:hover:not(:disabled){
+    border-color: var(--ledger);
+    background: var(--ledger-dim);
+  }
+
+  .option .tag{
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--ink-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    margin-top: 1px;
+  }
+
+  .option:disabled{ cursor: default; }
+
+  .option.correct{
+    border-color: var(--ledger);
+    background: var(--ledger-dim);
+  }
+  .option.correct .tag{
+    background: var(--ledger);
+    border-color: var(--ledger);
+    color: #fff;
+  }
+
+  .option.wrong{
+    border-color: var(--stamp);
+    background: var(--stamp-dim);
+  }
+  .option.wrong .tag{
+    background: var(--stamp);
+    border-color: var(--stamp);
+    color: #fff;
+  }
+
+  .option.faded{
+    opacity: 0.55;
+  }
+
+  /* ---------- feedback ---------- */
+  .feedback{
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--rule);
+    display:none;
+  }
+  .feedback.show{ display:block; }
+
+  .verdict{
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    margin-bottom: 6px;
+  }
+  .verdict.right{ color: var(--ledger); }
+  .verdict.wrong{ color: var(--stamp); }
+
+  .explain{
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .nextbar{
+    margin-top: 22px;
+    display:flex;
+    justify-content:flex-end;
+  }
+
+  button.next{
+    font-family: inherit;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--ink);
+    border: none;
+    padding: 11px 22px;
+    cursor:pointer;
+  }
+  button.next:hover{ background: var(--ledger); }
+
+  /* ---------- results ---------- */
+  .results{
+    text-align:left;
+  }
+  .results .score-line{
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-size: 46px;
+    margin: 4px 0 4px;
+    color: var(--ink);
+  }
+  .results .score-of{
+    font-size: 17px;
+    color: var(--ink-soft);
+  }
+  .results .remark{
+    margin: 18px 0 26px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height:1.55;
+  }
+
+  .missed-list{
+    margin: 0 0 28px;
+    padding: 0;
+    list-style:none;
+  }
+  .missed-list li{
+    border-top: 1px solid var(--rule);
+    padding: 14px 0;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+  .missed-list li:last-child{ border-bottom: 1px solid var(--rule); }
+  .missed-list .q{ color: var(--ink); font-weight:600; margin-bottom:4px; }
+  .missed-list .a{ color: var(--ledger); }
+  .missed-list .a b{ font-weight:700; }
+
+  .actions{
+    display:flex;
+    gap: 12px;
+  }
+  button.secondary{
+    font-family: inherit;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--ink);
+    padding: 11px 22px;
+    cursor:pointer;
+  }
+  button.secondary:hover{ background: var(--ink); color:#fff; }
+
+  @media (max-width: 480px){
+    .card{ padding: 24px 20px; }
+    .prompt{ font-size: 19px; }
+    .masthead h1{ font-size: 25px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .track > div{ transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="code">All C-A Questions Include Type A, B and C</div>
+    <h1>Entrepreneurship Review</h1>
+    <p>Thirty questions on opportunity identification, SWOT analysis, market research, and business registration in Nigeria.</p>
+  </div>
+
+  <div id="quizArea">
+    <div class="ledger-row">
+      <span>Question <span class="count" id="qposition">1</span> of <span id="qtotal">30</span></span>
+      <span id="scoreLive">Score: 0</span>
+    </div>
+    <div class="track"><div id="trackFill" style="width:0%"></div></div>
+
+    <div class="card" id="card">
+      <div class="qnum" id="qnum">Q1</div>
+      <p class="prompt" id="prompt"></p>
+      <div class="options" id="options"></div>
+
+      <div class="feedback" id="feedback">
+        <div class="verdict" id="verdict"></div>
+        <p class="explain" id="explain"></p>
+      </div>
+
+      <div class="nextbar">
+        <button class="next" id="nextBtn" style="display:none;">Next question</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="resultsArea" style="display:none;">
+    <div class="card results">
+      <div class="qnum">RESULT</div>
+      <div class="score-line" id="finalScore">0 / 30</div>
+      <div class="score-of" id="finalPercent">0%</div>
+      <p class="remark" id="remark"></p>
+
+      <ul class="missed-list" id="missedList"></ul>
+
+      <div class="actions">
+        <button class="next" id="retryAll">Retake full quiz</button>
+        <button class="secondary" id="retryMissed">Retry missed only</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const QUESTIONS = [
+  {q:"Which personal skill helps an entrepreneur to recognize a business opportunity in the market?",
+   options:["Time management","Opportunity Identification","Bookkeeping","Public speaking"],
+   correct:1,
+   explain:"Opportunity identification is the skill of spotting unmet needs or gaps in the market that can be turned into a viable business."},
+  {q:"What does it mean when an entrepreneur is adaptable and resilient?",
+   options:["The entrepreneur avoids taking any risks","The entrepreneur can adjust to new situations and continue even after failure","The entrepreneur relies only on past strategies","The entrepreneur delegates all decisions to employees"],
+   correct:1,
+   explain:"Adaptability and resilience mean the entrepreneur can adjust to changing circumstances and keep going after setbacks or failure."},
+  {q:"An entrepreneur who starts a business mainly to support a preferred lifestyle or personal satisfaction is known as a ________",
+   options:["Social entrepreneur","Serial entrepreneur","Growth entrepreneur","Lifestyle Entrepreneur"],
+   correct:3,
+   explain:"A lifestyle entrepreneur builds a business around the life they want to live rather than around rapid growth or maximum profit."},
+  {q:"Which of the following is an example of an entrepreneurial hazard?",
+   options:["Steady, guaranteed income","Fixed working hours","The financial risk of losing money","Automatic job security"],
+   correct:2,
+   explain:"Entrepreneurship carries hazards such as financial risk, since there is no guarantee of profit or repayment of invested capital."},
+  {q:"What is meant by a business opportunity?",
+   options:["A legal requirement to start a business","A good chance to start a profitable business","A government subsidy for startups","A type of business registration"],
+   correct:1,
+   explain:"A business opportunity is essentially a favorable set of circumstances that makes starting a profitable venture possible."},
+  {q:"A market survey is conducted in order to ________",
+   options:["Reduce the price of raw materials","Register a business name","Collect information about customers and market conditions","Draft a company's memorandum of association"],
+   correct:2,
+   explain:"Market surveys are used to gather data on customer needs, preferences, and overall market conditions."},
+  {q:'In SWOT analysis, the letters "O" and "T" represent ________',
+   options:["Objectives and Targets","Organization and Timing","Ownership and Trade","Opportunities and Threats"],
+   correct:3,
+   explain:"SWOT stands for Strengths, Weaknesses, Opportunities, and Threats — O and T are the external factors."},
+  {q:"What is the main difference between a product and a service?",
+   options:["A product is expensive while a service is cheap","A product is tangible while a service is intangible","A product requires no marketing while a service does","A product is sold only online"],
+   correct:1,
+   explain:"Products are physical, tangible goods, while services are intangible actions or performances."},
+  {q:"One reason for registering a business name is that it ________",
+   options:["Guarantees profit","Eliminates the need for a business plan","Gives the business legal recognition","Automatically provides funding"],
+   correct:2,
+   explain:"Registering a business name grants it official legal recognition distinct from the owner's personal identity."},
+  {q:"Which law in Nigeria provides the main legal framework for the formation and operation of companies?",
+   options:["The Trademarks Act","The Companies and Allied Matters Act (CAMA)","The Investment and Securities Act","The Nigerian Labour Act"],
+   correct:1,
+   explain:"CAMA is the principal legislation governing the incorporation and regulation of companies in Nigeria."},
+  {q:"What is the first step in evaluating whether to pursue a business opportunity?",
+   options:["Securing a loan","Hiring employees","Market analysis","Renting office space"],
+   correct:2,
+   explain:"Before committing resources, an entrepreneur should first analyze the market to confirm demand and feasibility."},
+  {q:"What is a dynamic marketing tool that encompasses critical information about your business?",
+   options:["An invoice","Business plan","A receipt","A memorandum"],
+   correct:1,
+   explain:"A business plan lays out goals, strategy, target market, and financial projections, making it a key marketing and planning tool."},
+  {q:"Which factor is crucial when evaluating market demand for a business opportunity?",
+   options:["Customer preferences and purchasing power","Office location only","Number of competitors' employees","Company logo design"],
+   correct:0,
+   explain:"Understanding what customers want and their ability to pay is central to assessing real market demand."},
+  {q:"How can entrepreneurs be categorized, except for which of the following criteria?",
+   options:["Motivation","Type of business","Scale of operation","Stages in development"],
+   correct:3,
+   explain:"Entrepreneurs are typically categorized by motivation, business type, or scale — not simply by 'stages in development.'"},
+  {q:"Who are essential to the development of any nation?",
+   options:["Entrepreneurs","Civil servants only","Tourists","Foreign investors only"],
+   correct:0,
+   explain:"Entrepreneurs drive job creation, innovation, and wealth generation, making them vital to national development."},
+  {q:"Identify the regulatory body that does not oversee business organizations.",
+   options:["Central Bank of Nigeria (CBN)","Corporate Affairs Commission (CAC)","Standards Organization of Nigeria (SON)","Federal Competition and Consumer Protection Commission (FCCPC)"],
+   correct:0,
+   explain:"The CBN regulates banking and financial institutions rather than the registration or general oversight of businesses."},
+  {q:"What is the main objective of registering a business with the Corporate Affairs Commission (CAC)?",
+   options:["To ensure compliance with legal requirements and gain legal recognition","To secure a bank loan automatically","To avoid paying taxes","To hire foreign workers"],
+   correct:0,
+   explain:"CAC registration formalizes a business, ensuring it meets legal requirements and is officially recognized."},
+  {q:"Which description best characterizes entrepreneurial skills?",
+   options:["Specific abilities vital for entrepreneurship","Skills only taught in universities","Talents unrelated to business success","Abilities that cannot be learned"],
+   correct:0,
+   explain:"Entrepreneurial skills are the specific competencies — like risk-taking, planning, and opportunity spotting — vital for running a venture."},
+  {q:"In SWOT analysis, what does the acronym SWOT stand for?",
+   options:["Strengths, Weaknesses, Opportunities, and Threats","Sales, Workforce, Operations, and Trade","Strategy, Wealth, Ownership, and Targets","Skills, Work, Objectives, and Tasks"],
+   correct:0,
+   explain:"SWOT is a planning framework covering internal Strengths/Weaknesses and external Opportunities/Threats."},
+  {q:"Which of the following is considered a personal skill?",
+   options:["Creativity and innovation","Company registration","Tax filing","Business licensing"],
+   correct:0,
+   explain:"Creativity and innovation are personal skills an individual brings to entrepreneurship, unlike administrative/legal processes."},
+  {q:"After the Corporate Affairs Commission (CAC) approves a business registration application, what occurs?",
+   options:["The business must reapply annually","A certificate of registration is issued","The business is automatically listed on the stock exchange","The owner is exempted from taxes"],
+   correct:1,
+   explain:"Once CAC approves the application, it issues a certificate of registration confirming the business's legal status."},
+  {q:"In what ways can entrepreneurial skills be cultivated?",
+   options:["Only through inheritance","Through education, experience, and personal growth","Only through government training","They cannot be developed"],
+   correct:1,
+   explain:"Entrepreneurial skills are developed over time through learning, hands-on experience, and personal development."},
+  {q:"How do entrepreneurs foster innovation?",
+   options:["By avoiding new technology","By creating new products and services","By copying competitors exactly","By reducing customer engagement"],
+   correct:1,
+   explain:"Entrepreneurs drive innovation by developing new or improved products and services to meet market needs."},
+  {q:"Which source is key for generating business ideas by understanding market needs?",
+   options:["Market research","Personal guesswork","Random selection","Competitors' financial statements only"],
+   correct:0,
+   explain:"Market research systematically uncovers customer needs and gaps, making it a key source of viable business ideas."},
+  {q:"What does the Standards Organization of Nigeria (SON) regulate regarding product selection?",
+   options:["Labeling and packaging requirements","Employee salaries","Office rental agreements","Foreign exchange rates"],
+   correct:0,
+   explain:"SON sets and enforces standards including labeling and packaging requirements for products in Nigeria."},
+  {q:"Which body was established under CAMA to oversee companies in Nigeria?",
+   options:["Corporate Affairs Commission (CAC)","Central Bank of Nigeria (CBN)","Nigerian Stock Exchange","Federal Inland Revenue Service"],
+   correct:0,
+   explain:"The CAC was established under the Companies and Allied Matters Act (CAMA) to register and regulate companies."},
+  {q:"What is the primary aim of conducting a market survey?",
+   options:["To gather information about the target market for strategic decision-making","To increase product prices","To reduce the number of competitors","To eliminate the need for advertising"],
+   correct:0,
+   explain:"Market surveys collect data to inform strategic decisions about products, pricing, and target customers."},
+  {q:"Which agency is tasked with enforcing consumer protection laws in Nigeria?",
+   options:["Federal Competition and Consumer Protection Commission (FCCPC)","Central Bank of Nigeria (CBN)","Corporate Affairs Commission (CAC)","Nigerian Customs Service"],
+   correct:0,
+   explain:"The FCCPC is responsible for enforcing consumer protection and fair competition laws in Nigeria."},
+  {q:"Which interpersonal skill is crucial for resolving disputes in a business setting?",
+   options:["Bookkeeping","Conflict Resolution","Data entry","Inventory management"],
+   correct:1,
+   explain:"Conflict resolution is the interpersonal skill needed to manage and settle disputes effectively in business."},
+  {q:"Which legal structure for businesses allows for flexibility in management and decision-making?",
+   options:["Public Limited Company only","Sole Proprietorship","Limited Liability Company (LLC)","Both B and C"],
+   correct:3,
+   explain:"Both Sole Proprietorships and LLCs offer more operational flexibility than the more rigid structure of public companies."}
+];
+
+const TAGS = ["A","B","C","D"];
+
+let order = [...QUESTIONS.keys()];
+let i = 0;
+let score = 0;
+let missed = []; // indices into QUESTIONS that were answered wrong
+
+const els = {
+  qposition: document.getElementById('qposition'),
+  qtotal: document.getElementById('qtotal'),
+  scoreLive: document.getElementById('scoreLive'),
+  trackFill: document.getElementById('trackFill'),
+  qnum: document.getElementById('qnum'),
+  prompt: document.getElementById('prompt'),
+  options: document.getElementById('options'),
+  feedback: document.getElementById('feedback'),
+  verdict: document.getElementById('verdict'),
+  explain: document.getElementById('explain'),
+  nextBtn: document.getElementById('nextBtn'),
+  quizArea: document.getElementById('quizArea'),
+  resultsArea: document.getElementById('resultsArea'),
+  finalScore: document.getElementById('finalScore'),
+  finalPercent: document.getElementById('finalPercent'),
+  remark: document.getElementById('remark'),
+  missedList: document.getElementById('missedList'),
+  retryAll: document.getElementById('retryAll'),
+  retryMissed: document.getElementById('retryMissed'),
+};
+
+els.qtotal.textContent = order.length;
+
+function renderQuestion(){
+  const qi = order[i];
+  const item = QUESTIONS[qi];
+
+  els.qposition.textContent = i + 1;
+  els.qtotal.textContent = order.length;
+  els.scoreLive.textContent = "Score: " + score;
+  els.trackFill.style.width = (i / order.length * 100) + "%";
+
+  els.qnum.textContent = "Q" + (i + 1);
+  els.prompt.textContent = item.q;
+  els.options.innerHTML = "";
+  els.feedback.classList.remove('show');
+  els.nextBtn.style.display = "none";
+
+  item.options.forEach((optText, idx) => {
+    const btn = document.createElement('button');
+    btn.className = "option";
+    btn.innerHTML = '<span class="tag">' + TAGS[idx] + '</span><span>' + optText + '</span>';
+    btn.addEventListener('click', () => handleAnswer(idx, qi, btn));
+    els.options.appendChild(btn);
+  });
+}
+
+function handleAnswer(idx, qi, btnEl){
+  const item = QUESTIONS[qi];
+  const correctIdx = item.correct;
+  const allBtns = els.options.querySelectorAll('.option');
+
+  allBtns.forEach((b, bi) => {
+    b.disabled = true;
+    if (bi === correctIdx) b.classList.add('correct');
+    if (bi !== correctIdx) b.classList.add('faded');
+  });
+
+  const isRight = idx === correctIdx;
+  if (isRight){
+    score++;
+  } else {
+    btnEl.classList.remove('faded');
+    btnEl.classList.add('wrong');
+    missed.push(qi);
+  }
+
+  els.scoreLive.textContent = "Score: " + score;
+  els.verdict.textContent = isRight ? "Correct." : "Not quite.";
+  els.verdict.className = "verdict " + (isRight ? "right" : "wrong");
+  els.explain.textContent = item.explain;
+  els.feedback.classList.add('show');
+  els.nextBtn.style.display = "inline-block";
+  els.nextBtn.textContent = (i === order.length - 1) ? "See results" : "Next question";
+}
+
+els.nextBtn.addEventListener('click', () => {
+  i++;
+  if (i >= order.length){
+    showResults();
+  } else {
+    renderQuestion();
+  }
+});
+
+function showResults(){
+  els.quizArea.style.display = "none";
+  els.resultsArea.style.display = "block";
+
+  const total = order.length;
+  const pct = Math.round((score / total) * 100);
+  els.finalScore.textContent = score + " / " + total;
+  els.finalPercent.textContent = pct + "%";
+
+  let remark;
+  if (pct === 100) remark = "Full marks. That's every question in modules 3–8 covered.";
+  else if (pct >= 80) remark = "Strong grasp of the material — worth reviewing the few you missed before the exam.";
+  else if (pct >= 50) remark = "A solid start. Go through the missed questions below, then retake to lock them in.";
+  else remark = "Worth another pass through modules 3–8 before retaking — the missed list below is a good place to start.";
+  els.remark.textContent = remark;
+
+  els.missedList.innerHTML = "";
+  const uniqueMissed = [...new Set(missed)];
+  uniqueMissed.forEach(qi => {
+    const item = QUESTIONS[qi];
+    const li = document.createElement('li');
+    li.innerHTML = '<div class="q">' + item.q + '</div><div class="a">Correct answer: <b>' + item.options[item.correct] + '</b></div>';
+    els.missedList.appendChild(li);
+  });
+
+  els.retryMissed.style.display = uniqueMissed.length ? "inline-block" : "none";
+}
+
+els.retryAll.addEventListener('click', () => {
+  order = [...QUESTIONS.keys()];
+  i = 0; score = 0; missed = [];
+  els.resultsArea.style.display = "none";
+  els.quizArea.style.display = "block";
+  renderQuestion();
+});
+
+els.retryMissed.addEventListener('click', () => {
+  order = [...new Set(missed)];
+  i = 0; score = 0; missed = [];
+  els.resultsArea.style.display = "none";
+  els.quizArea.style.display = "block";
+  renderQuestion();
+});
+
+renderQuestion();
+</script>
+
+</body>
+</html>
