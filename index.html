@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ENT 211 — Entrepreneurship</title>
+<title>ENT 211 — Entrepreneurship (Types A, B, C)</title>
 <style>
   :root{
     --paper: #F6F3EC;
@@ -299,7 +299,7 @@
 
   <div class="masthead">
     <h1>ENT 211: Entrepreneurship</h1>
-    <h2>All C-A Questions Include Type A, B and C</h2>
+    <h2>All Questions Arranged by Type (A, B, C)</h2>
   </div>
 
   <div id="quizArea">
@@ -345,126 +345,159 @@
 
 <script>
 const QUESTIONS = [
-  {q:"Which personal skill helps an entrepreneur to recognize a business opportunity in the market?",
-   options:["Time management","Opportunity Identification","Bookkeeping","Public speaking"],
-   correct:1,
-   explain:"Opportunity identification is the skill of spotting unmet needs or gaps in the market that can be turned into a viable business."},
-  {q:"What does it mean when an entrepreneur is adaptable and resilient?",
-   options:["The entrepreneur avoids taking any risks","The entrepreneur can adjust to new situations and continue even after failure","The entrepreneur relies only on past strategies","The entrepreneur delegates all decisions to employees"],
-   correct:1,
-   explain:"Adaptability and resilience mean the entrepreneur can adjust to changing circumstances and keep going after setbacks or failure."},
-  {q:"An entrepreneur who starts a business mainly to support a preferred lifestyle or personal satisfaction is known as a ________",
-   options:["Social entrepreneur","Serial entrepreneur","Growth entrepreneur","Lifestyle Entrepreneur"],
+  // Type A
+  {q:"A student intends to establish a food business. Before investing, she studies customer preferences, examines competitors and assesses possible risks. Which entrepreneurial abilities are most evident?",
+   options:["Passive thinking and risk avoidance","Networking and business registration","Creative destruction and copyright protection","Critical thinking and calculated decision-making"],
    correct:3,
-   explain:"A lifestyle entrepreneur builds a business around the life they want to live rather than around rapid growth or maximum profit."},
-  {q:"Which of the following is an example of an entrepreneurial hazard?",
-   options:["Steady, guaranteed income","Fixed working hours","The financial risk of losing money","Automatic job security"],
-   correct:2,
-   explain:"Entrepreneurship carries hazards such as financial risk, since there is no guarantee of profit or repayment of invested capital."},
-  {q:"What is meant by a business opportunity?",
-   options:["A legal requirement to start a business","A good chance to start a profitable business","A government subsidy for startups","A type of business registration"],
+   explain:"The student is using critical thinking to analyze the market and making calculated decisions based on that analysis.",
+   type:"Type A"},
+  {q:"When faced with an existing problem, which question best reflects entrepreneurial thinking?",
+   options:["How can I avoid changing the present situation?","What useful solution could be developed from this situation?","Who is responsible for this problem?","Why should I become involved?"],
    correct:1,
-   explain:"A business opportunity is essentially a favorable set of circumstances that makes starting a profitable venture possible."},
-  {q:"A market survey is conducted in order to ________",
-   options:["Reduce the price of raw materials","Register a business name","Collect information about customers and market conditions","Draft a company's memorandum of association"],
+   explain:"Entrepreneurial thinking focuses on creating solutions and opportunities from problems, not assigning blame or avoiding change.",
+   type:"Type A"},
+  {q:"An entrepreneur reviews the outcome of a failed business strategy and uses the experience to improve a future strategy. Which thinking process is involved?",
+   options:["Reflective thinking","Operational thinking","Competitive thinking","Creative thinking"],
+   correct:0,
+   explain:"Reflective thinking involves learning from past experiences to improve future actions.",
+   type:"Type A"},
+  {q:"Which situation provides the strongest evidence that an idea has developed from creativity into innovation?",
+   options:["An entrepreneur writes down several possible ideas","An entrepreneur imagines a new product","An entrepreneur develops and applies an idea to create useful value","An entrepreneur discusses a new idea with friends"],
    correct:2,
-   explain:"Market surveys are used to gather data on customer needs, preferences, and overall market conditions."},
-  {q:'In SWOT analysis, the letters "O" and "T" represent ________',
-   options:["Objectives and Targets","Organization and Timing","Ownership and Trade","Opportunities and Threats"],
+   explain:"Innovation occurs when an idea is implemented and creates value, not just when it is generated or discussed.",
+   type:"Type A"},
+  {q:"A business develops a new method of promoting an existing product to a different group of customers. This is an example of:",
+   options:["Organizational innovation","Process innovation","Product innovation","Marketing innovation"],
    correct:3,
-   explain:"SWOT stands for Strengths, Weaknesses, Opportunities, and Threats — O and T are the external factors."},
-  {q:"What is the main difference between a product and a service?",
-   options:["A product is expensive while a service is cheap","A product is tangible while a service is intangible","A product requires no marketing while a service does","A product is sold only online"],
+   explain:"Marketing innovation involves new marketing methods, including targeting new customer segments or changing promotion strategies.",
+   type:"Type A"},
+  {q:"According to Hébert and Link, which French verb means 'to undertake' and is associated with the origin of the term entrepreneurship?",
+   options:["Entreprendre","Entreprendremer","Entrepreneur","Enterprise"],
+   correct:0,
+   explain:"The term 'entrepreneur' is derived from the French verb 'entreprendre,' which means 'to undertake.'",
+   type:"Type A"},
+  {q:"An entrepreneur who actively searches for problems, market gaps and better ways of doing things demonstrates the characteristic of an:",
+   options:["Opportunity seeker","Risk avoider","Business manager","Passive thinker"],
+   correct:0,
+   explain:"An opportunity seeker actively looks for problems to solve and gaps to fill, which is a core entrepreneurial trait.",
+   type:"Type A"},
+  {q:"The process through which an enterprise becomes formally recognized under the applicable legal framework is known as:",
+   options:["Business innovation","Business registration","Business planning","Business ownership"],
    correct:1,
-   explain:"Products are physical, tangible goods, while services are intangible actions or performances."},
-  {q:"One reason for registering a business name is that it ________",
-   options:["Guarantees profit","Eliminates the need for a business plan","Gives the business legal recognition","Automatically provides funding"],
+   explain:"Business registration is the formal process of registering a business with the appropriate government authority.",
+   type:"Type A"},
+  {q:"Legal rights that protect creations of the mind, including inventions, logos and original creative works, are collectively known as:",
+   options:["Business registration","Creative destruction","Intellectual property","Entrepreneurial resources"],
    correct:2,
-   explain:"Registering a business name grants it official legal recognition distinct from the owner's personal identity."},
-  {q:"Which law in Nigeria provides the main legal framework for the formation and operation of companies?",
-   options:["The Trademarks Act","The Companies and Allied Matters Act (CAMA)","The Investment and Securities Act","The Nigerian Labour Act"],
-   correct:1,
-   explain:"CAMA is the principal legislation governing the incorporation and regulation of companies in Nigeria."},
-  {q:"What is the first step in evaluating whether to pursue a business opportunity?",
-   options:["Securing a loan","Hiring employees","Market analysis","Renting office space"],
+   explain:"Intellectual property is the legal term for creations of the mind, which can be protected by patents, trademarks, copyrights, etc.",
+   type:"Type A"},
+  {q:"In e-commerce, when one individual sells a used item directly to another individual through an online marketplace, the transaction is known as:",
+   options:["B2B","C2B","B2C","C2C"],
+   correct:3,
+   explain:"C2C (Consumer-to-Consumer) transactions occur between two individuals, such as selling a used item on a marketplace.",
+   type:"Type A"},
+  // Type B
+  {q:"What is the best distinction between creativity and innovation?",
+   options:["Creativity eliminates risk, whereas innovation creates risk","Creativity is only concerned with artistic activities","Creativity generates ideas, while innovation puts useful ideas into action","Creativity involves business ownership, while innovation involves registration"],
    correct:2,
-   explain:"Before committing resources, an entrepreneur should first analyze the market to confirm demand and feasibility."},
-  {q:"What is a dynamic marketing tool that encompasses critical information about your business?",
-   options:["An invoice","Business plan","A receipt","A memorandum"],
+   explain:"Creativity is about generating new ideas, while innovation is the process of implementing those ideas to create value.",
+   type:"Type B"},
+  {q:"A farmer replaces traditional irrigation with drip irrigation to conserve water and improve production. This is an example of:",
+   options:["Organizational innovation","Process innovation","Product innovation","Marketing innovation"],
    correct:1,
-   explain:"A business plan lays out goals, strategy, target market, and financial projections, making it a key marketing and planning tool."},
-  {q:"Which factor is crucial when evaluating market demand for a business opportunity?",
-   options:["Customer preferences and purchasing power","Office location only","Number of competitors' employees","Company logo design"],
-   correct:0,
-   explain:"Understanding what customers want and their ability to pay is central to assessing real market demand."},
-  {q:"How can entrepreneurs be categorized, except for which of the following criteria?",
-   options:["Motivation","Type of business","Scale of operation","Stages in development"],
+   explain:"Process innovation refers to new or improved methods of production or delivery, such as a new irrigation technique.",
+   type:"Type B"},
+  {q:"Which of the following is a major purpose of preparing a business plan?",
+   options:["To guarantee that the business will succeed","To eliminate every possible business risk","To replace proper financial management","To explain what the business intends to achieve and how it will achieve it"],
    correct:3,
-   explain:"Entrepreneurs are typically categorized by motivation, business type, or scale — not simply by 'stages in development.'"},
-  {q:"Who are essential to the development of any nation?",
-   options:["Entrepreneurs","Civil servants only","Tourists","Foreign investors only"],
-   correct:0,
-   explain:"Entrepreneurs drive job creation, innovation, and wealth generation, making them vital to national development."},
-  {q:"Identify the regulatory body that does not oversee business organizations.",
-   options:["Central Bank of Nigeria (CBN)","Corporate Affairs Commission (CAC)","Standards Organization of Nigeria (SON)","Federal Competition and Consumer Protection Commission (FCCPC)"],
-   correct:0,
-   explain:"The CBN regulates banking and financial institutions rather than the registration or general oversight of businesses."},
-  {q:"What is the main objective of registering a business with the Corporate Affairs Commission (CAC)?",
-   options:["To ensure compliance with legal requirements and gain legal recognition","To secure a bank loan automatically","To avoid paying taxes","To hire foreign workers"],
-   correct:0,
-   explain:"CAC registration formalizes a business, ensuring it meets legal requirements and is officially recognized."},
-  {q:"Which description best characterizes entrepreneurial skills?",
-   options:["Specific abilities vital for entrepreneurship","Skills only taught in universities","Talents unrelated to business success","Abilities that cannot be learned"],
-   correct:0,
-   explain:"Entrepreneurial skills are the specific competencies — like risk-taking, planning, and opportunity spotting — vital for running a venture."},
-  {q:"In SWOT analysis, what does the acronym SWOT stand for?",
-   options:["Strengths, Weaknesses, Opportunities, and Threats","Sales, Workforce, Operations, and Trade","Strategy, Wealth, Ownership, and Targets","Skills, Work, Objectives, and Tasks"],
-   correct:0,
-   explain:"SWOT is a planning framework covering internal Strengths/Weaknesses and external Opportunities/Threats."},
-  {q:"Which of the following is considered a personal skill?",
-   options:["Creativity and innovation","Company registration","Tax filing","Business licensing"],
-   correct:0,
-   explain:"Creativity and innovation are personal skills an individual brings to entrepreneurship, unlike administrative/legal processes."},
-  {q:"After the Corporate Affairs Commission (CAC) approves a business registration application, what occurs?",
-   options:["The business must reapply annually","A certificate of registration is issued","The business is automatically listed on the stock exchange","The owner is exempted from taxes"],
+   explain:"A business plan outlines the business's goals, strategies, and the roadmap to achieve them.",
+   type:"Type B"},
+  {q:"A student creates a unique logo and brand name for a clothing business and wants legal protection for the brand identity. Which intellectual property protection is most relevant?",
+   options:["Copyright","Industrial design","Trademark","Patent"],
+   correct:2,
+   explain:"A trademark protects brand names, logos, and slogans used to identify and distinguish goods or services.",
+   type:"Type B"},
+  {q:"A wholesaler sells products online directly to a retail business. This transaction is classified as:",
+   options:["C2C","B2B","B2C","C2B"],
    correct:1,
-   explain:"Once CAC approves the application, it issues a certificate of registration confirming the business's legal status."},
-  {q:"In what ways can entrepreneurial skills be cultivated?",
-   options:["Only through inheritance","Through education, experience, and personal growth","Only through government training","They cannot be developed"],
-   correct:1,
-   explain:"Entrepreneurial skills are developed over time through learning, hands-on experience, and personal development."},
-  {q:"How do entrepreneurs foster innovation?",
-   options:["By avoiding new technology","By creating new products and services","By copying competitors exactly","By reducing customer engagement"],
-   correct:1,
-   explain:"Entrepreneurs drive innovation by developing new or improved products and services to meet market needs."},
-  {q:"Which source is key for generating business ideas by understanding market needs?",
-   options:["Market research","Personal guesswork","Random selection","Competitors' financial statements only"],
-   correct:0,
-   explain:"Market research systematically uncovers customer needs and gaps, making it a key source of viable business ideas."},
-  {q:"What does the Standards Organization of Nigeria (SON) regulate regarding product selection?",
-   options:["Labeling and packaging requirements","Employee salaries","Office rental agreements","Foreign exchange rates"],
-   correct:0,
-   explain:"SON sets and enforces standards including labeling and packaging requirements for products in Nigeria."},
-  {q:"Which body was established under CAMA to oversee companies in Nigeria?",
-   options:["Corporate Affairs Commission (CAC)","Central Bank of Nigeria (CBN)","Nigerian Stock Exchange","Federal Inland Revenue Service"],
-   correct:0,
-   explain:"The CAC was established under the Companies and Allied Matters Act (CAMA) to register and regulate companies."},
-  {q:"What is the primary aim of conducting a market survey?",
-   options:["To gather information about the target market for strategic decision-making","To increase product prices","To reduce the number of competitors","To eliminate the need for advertising"],
-   correct:0,
-   explain:"Market surveys collect data to inform strategic decisions about products, pricing, and target customers."},
-  {q:"Which agency is tasked with enforcing consumer protection laws in Nigeria?",
-   options:["Federal Competition and Consumer Protection Commission (FCCPC)","Central Bank of Nigeria (CBN)","Corporate Affairs Commission (CAC)","Nigerian Customs Service"],
-   correct:0,
-   explain:"The FCCPC is responsible for enforcing consumer protection and fair competition laws in Nigeria."},
-  {q:"Which interpersonal skill is crucial for resolving disputes in a business setting?",
-   options:["Bookkeeping","Conflict Resolution","Data entry","Inventory management"],
-   correct:1,
-   explain:"Conflict resolution is the interpersonal skill needed to manage and settle disputes effectively in business."},
-  {q:"Which legal structure for businesses allows for flexibility in management and decision-making?",
-   options:["Public Limited Company only","Sole Proprietorship","Limited Liability Company (LLC)","Both B and C"],
+   explain:"B2B (Business-to-Business) transactions occur between businesses, such as a wholesaler selling to a retailer.",
+   type:"Type B"},
+  {q:"Entrepreneurship should not be regarded only as establishing a new business because:",
+   options:["Entrepreneurs are mainly concerned with managing employees","Only registered businesses can create opportunities","Entrepreneurial activities can also take place within existing organizations","Businesses do not require entrepreneurial activities"],
+   correct:2,
+   explain:"Entrepreneurship includes innovative activities within existing organizations (intrapreneurship) as well as starting new ventures.",
+   type:"Type B"},
+  {q:"An employee observes repeated customer complaints about a particular service and proposes a new system to management to solve the problem. Which entrepreneurial characteristic is most evident?",
+   options:["Financial independence","Risk avoidance","Business ownership","Opportunity recognition"],
    correct:3,
-   explain:"Both Sole Proprietorships and LLCs offer more operational flexibility than the more rigid structure of public companies."}
+   explain:"Opportunity recognition involves seeing problems or gaps as potential business opportunities, as this employee does.",
+   type:"Type B"},
+  {q:"Which action best demonstrates resourcefulness in entrepreneurship?",
+   options:["Finding alternative ways to pursue an opportunity using available resources","Waiting until enough money is available before taking action","Abandoning an idea because resources are limited","Avoiding opportunities that require additional effort"],
+   correct:0,
+   explain:"Resourcefulness is the ability to creatively use available resources to overcome obstacles and pursue opportunities.",
+   type:"Type B"},
+  {q:"An entrepreneur introduces a new administrative procedure that reduces unnecessary paperwork in the organization. Why can this activity be considered entrepreneurship?",
+   options:["It requires only financial investment","It involves innovation within an existing organization","It involves purchasing an existing business","It requires the formation of a cooperative"],
+   correct:1,
+   explain:"This is intrapreneurship — introducing an innovation within an existing organization, which is a form of entrepreneurship.",
+   type:"Type B"},
+  {q:"Which situation best demonstrates an entrepreneur acting as a change agent?",
+   options:["Waiting for competitors to introduce improvements","Rejecting customer complaints without investigation","Maintaining an inefficient procedure because it is familiar","Introducing a better way of delivering a service"],
+   correct:3,
+   explain:"A change agent actively introduces and implements improvements, like a better way of delivering a service.",
+   type:"Type B"},
+  // Type C
+  {q:"Which of the following best captures the broader meaning of entrepreneurship?",
+   options:["Managing an already established business","Identifying opportunities and creating value","Obtaining enough money to start a business","Taking financial risks for the purpose of making profit"],
+   correct:1,
+   explain:"Entrepreneurship is fundamentally about identifying opportunities and creating value, rather than just managing or funding.",
+   type:"Type C"},
+  {q:"According to Schumpeter, an entrepreneur is primarily a person who:",
+   options:["Manages an existing business without making major changes","Avoids uncertainty through insurance","Introduces new combinations into economic activity","Concentrates mainly on reducing business expenses"],
+   correct:2,
+   explain:"Schumpeter defined the entrepreneur as an innovator who introduces new combinations (new products, methods, markets, etc.) into the economy.",
+   type:"Type C"},
+  {q:"Which situation best represents Kirznerian entrepreneurship?",
+   options:["Developing a completely new production machine","Discovering an unmet demand for an existing product","Replacing an industry with a completely new technology","Introducing a new method of production"],
+   correct:1,
+   explain:"Kirznerian entrepreneurship focuses on alertness to previously unnoticed opportunities, such as discovering unmet demand for an existing product.",
+   type:"Type C"},
+  {q:"An employee develops and successfully implements a new customer-service system within the telecommunications company where he works. This is an example of:",
+   options:["Intrapreneurship","Necessity entrepreneurship","Sole proprietorship","Creative destruction"],
+   correct:0,
+   explain:"Intrapreneurship refers to entrepreneurial activities within an existing organization, like developing a new customer-service system.",
+   type:"Type C"},
+  {q:"According to Frank Knight, what is the major difference between risk and uncertainty?",
+   options:["Risk cannot be measured, whereas uncertainty can be measured","Risk can be measured, whereas uncertainty cannot be measured","Both risk and uncertainty can always be insured","Neither risk nor uncertainty influences entrepreneurial decisions"],
+   correct:1,
+   explain:"Knight distinguished between measurable risk (where outcomes can be probabilistically assessed) and unmeasurable uncertainty.",
+   type:"Type C"},
+  {q:"A graduate establishes a small poultry business after failing repeatedly to obtain employment. This is best described as:",
+   options:["Corporate entrepreneurship","Opportunity-based entrepreneurship","Intrapreneurship","Necessity-based entrepreneurship"],
+   correct:3,
+   explain:"Necessity-based entrepreneurship occurs when someone starts a business because other employment options are unavailable.",
+   type:"Type C"},
+  {q:"A traditional production method becomes obsolete because a more efficient technology has been introduced, while new businesses emerge from the new technology. This illustrates:",
+   options:["Networking","Creative destruction","Reflective thinking","Business registration"],
+   correct:1,
+   explain:"Creative destruction, as described by Schumpeter, is the process where new innovations replace old technologies and economic structures.",
+   type:"Type C"},
+  {q:"Which action best demonstrates calculated risk-taking?",
+   options:["Borrowing money without planning how to repay it","Investing all available funds without studying the market","Testing a product on a small scale before expanding","Starting a business without considering possible losses"],
+   correct:2,
+   explain:"Calculated risk-taking involves testing and assessing before fully committing, such as trying a product on a small scale first.",
+   type:"Type C"},
+  {q:"An entrepreneur studies market information, compares competitors' prices and evaluates possible consequences before introducing a product. Which type of thinking is demonstrated?",
+   options:["Creative thinking","Passive thinking","Critical thinking","Reflective thinking"],
+   correct:2,
+   explain:"Critical thinking involves analysis, comparison, and evaluation of information to make reasoned decisions.",
+   type:"Type C"},
+  {q:"After a business performs poorly, the entrepreneur examines the causes of failure and decides what should be changed in the next attempt. This illustrates:",
+   options:["Reflective thinking","Opportunity seeking","Marketing innovation","Critical thinking"],
+   correct:0,
+   explain:"Reflective thinking involves looking back at experiences, analyzing them, and learning for the future.",
+   type:"Type C"}
 ];
 
 const TAGS = ["A","B","C","D"];
@@ -501,111 +534,150 @@ els.qtotal.textContent = order.length;
 function renderQuestion(){
   const qi = order[i];
   const item = QUESTIONS[qi];
+  
+  // Determine question type label
+  let typeLabel = '';
+  if (qi < 10) typeLabel = 'Type A Question ' + (qi + 1);
+  else if (qi < 20) typeLabel = 'Type B Question ' + (qi - 9);
+  else typeLabel = 'Type C Question ' + (qi - 19);
 
   els.qposition.textContent = i + 1;
   els.qtotal.textContent = order.length;
-  els.scoreLive.textContent = "Score: " + score;
-  els.trackFill.style.width = (i / order.length * 100) + "%";
+  els.scoreLive.textContent = `Score: ${score}`;
+  els.trackFill.style.width = `${((i) / order.length) * 100}%`;
 
-  els.qnum.textContent = "Q" + (i + 1);
+  els.qnum.textContent = typeLabel;
   els.prompt.textContent = item.q;
-  els.options.innerHTML = "";
+
+  // Reset feedback
   els.feedback.classList.remove('show');
-  els.nextBtn.style.display = "none";
+  els.nextBtn.style.display = 'none';
 
-  item.options.forEach((optText, idx) => {
+  // Build options
+  const optContainer = els.options;
+  optContainer.innerHTML = '';
+  item.options.forEach((opt, idx) => {
     const btn = document.createElement('button');
-    btn.className = "option";
-    btn.innerHTML = '<span class="tag">' + TAGS[idx] + '</span><span>' + optText + '</span>';
-    btn.addEventListener('click', () => handleAnswer(idx, qi, btn));
-    els.options.appendChild(btn);
+    btn.className = 'option';
+    btn.disabled = false;
+    btn.innerHTML = `<span class="tag">${TAGS[idx]}</span><span>${opt}</span>`;
+    btn.dataset.idx = idx;
+    btn.addEventListener('click', () => handleAnswer(idx));
+    optContainer.appendChild(btn);
   });
 }
 
-function handleAnswer(idx, qi, btnEl){
+function handleAnswer(selected){
+  const qi = order[i];
   const item = QUESTIONS[qi];
-  const correctIdx = item.correct;
-  const allBtns = els.options.querySelectorAll('.option');
+  const btns = els.options.querySelectorAll('.option');
+  const isCorrect = (selected === item.correct);
 
-  allBtns.forEach((b, bi) => {
-    b.disabled = true;
-    if (bi === correctIdx) b.classList.add('correct');
-    if (bi !== correctIdx) b.classList.add('faded');
+  // Disable all buttons
+  btns.forEach(b => b.disabled = true);
+
+  // Highlight correct/wrong
+  btns.forEach((b, idx) => {
+    if(idx === item.correct) b.classList.add('correct');
+    if(idx === selected && !isCorrect) b.classList.add('wrong');
+    if(idx !== selected && idx !== item.correct) b.classList.add('faded');
   });
 
-  const isRight = idx === correctIdx;
-  if (isRight){
-    score++;
-  } else {
-    btnEl.classList.remove('faded');
-    btnEl.classList.add('wrong');
-    missed.push(qi);
-  }
-
-  els.scoreLive.textContent = "Score: " + score;
-  els.verdict.textContent = isRight ? "Correct." : "Not quite.";
-  els.verdict.className = "verdict " + (isRight ? "right" : "wrong");
-  els.explain.textContent = item.explain;
+  // Show feedback
   els.feedback.classList.add('show');
-  els.nextBtn.style.display = "inline-block";
-  els.nextBtn.textContent = (i === order.length - 1) ? "See results" : "Next question";
+  const verdictEl = els.verdict;
+  if(isCorrect){
+    verdictEl.textContent = '✅ Correct';
+    verdictEl.className = 'verdict right';
+    score++;
+    els.scoreLive.textContent = `Score: ${score}`;
+  } else {
+    verdictEl.textContent = '❌ Incorrect';
+    verdictEl.className = 'verdict wrong';
+    if(!missed.includes(qi)) missed.push(qi);
+  }
+  els.explain.textContent = item.explain;
+
+  // Show next button
+  els.nextBtn.style.display = 'flex';
 }
 
-els.nextBtn.addEventListener('click', () => {
+function nextQuestion(){
   i++;
-  if (i >= order.length){
-    showResults();
-  } else {
+  if(i < order.length){
     renderQuestion();
+  } else {
+    showResults();
   }
-});
+}
 
 function showResults(){
-  els.quizArea.style.display = "none";
-  els.resultsArea.style.display = "block";
+  els.quizArea.style.display = 'none';
+  els.resultsArea.style.display = 'block';
 
   const total = order.length;
-  const pct = Math.round((score / total) * 100);
-  els.finalScore.textContent = score + " / " + total;
-  els.finalPercent.textContent = pct + "%";
+  const percent = Math.round((score / total) * 100);
+  els.finalScore.textContent = `${score} / ${total}`;
+  els.finalPercent.textContent = `${percent}%`;
 
-  let remark;
-  if (pct === 100) remark = "Full marks. That's every question in modules 3–8 covered.";
-  else if (pct >= 80) remark = "Strong grasp of the material — worth reviewing the few you missed before the exam.";
-  else if (pct >= 50) remark = "A solid start. Go through the missed questions below, then retake to lock them in.";
-  else remark = "Worth another pass through modules 3–8 before retaking — the missed list below is a good place to start.";
+  let remark = '';
+  if(percent === 100) remark = '🏆 Excellent! You have a strong grasp of entrepreneurship concepts.';
+  else if(percent >= 70) remark = '👍 Good job! Review the missed questions to reinforce your understanding.';
+  else if(percent >= 50) remark = '📖 Keep studying! Focus on the topics you missed.';
+  else remark = '💪 Don\'t give up! Review the material and try again.';
   els.remark.textContent = remark;
 
-  els.missedList.innerHTML = "";
-  const uniqueMissed = [...new Set(missed)];
-  uniqueMissed.forEach(qi => {
-    const item = QUESTIONS[qi];
+  // Build missed list
+  const list = els.missedList;
+  list.innerHTML = '';
+  if(missed.length === 0){
     const li = document.createElement('li');
-    li.innerHTML = '<div class="q">' + item.q + '</div><div class="a">Correct answer: <b>' + item.options[item.correct] + '</b></div>';
-    els.missedList.appendChild(li);
-  });
-
-  els.retryMissed.style.display = uniqueMissed.length ? "inline-block" : "none";
+    li.textContent = '🎉 No questions missed! Perfect score!';
+    list.appendChild(li);
+  } else {
+    missed.forEach(idx => {
+      const item = QUESTIONS[idx];
+      let typeLabel = '';
+      if (idx < 10) typeLabel = 'Type A Question ' + (idx + 1);
+      else if (idx < 20) typeLabel = 'Type B Question ' + (idx - 9);
+      else typeLabel = 'Type C Question ' + (idx - 19);
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <div class="q">${typeLabel}: ${item.q}</div>
+        <div class="a">✔ Correct answer: <b>${TAGS[item.correct]}: ${item.options[item.correct]}</b></div>
+      `;
+      list.appendChild(li);
+    });
+  }
 }
 
-els.retryAll.addEventListener('click', () => {
-  order = [...QUESTIONS.keys()];
-  i = 0; score = 0; missed = [];
-  els.resultsArea.style.display = "none";
-  els.quizArea.style.display = "block";
+function resetQuiz(newOrder){
+  order = newOrder;
+  i = 0;
+  score = 0;
+  missed = [];
+  els.quizArea.style.display = 'block';
+  els.resultsArea.style.display = 'none';
   renderQuestion();
+}
+
+// Event listeners
+els.nextBtn.addEventListener('click', nextQuestion);
+
+els.retryAll.addEventListener('click', () => {
+  resetQuiz([...QUESTIONS.keys()]);
 });
 
 els.retryMissed.addEventListener('click', () => {
-  order = [...new Set(missed)];
-  i = 0; score = 0; missed = [];
-  els.resultsArea.style.display = "none";
-  els.quizArea.style.display = "block";
-  renderQuestion();
+  if(missed.length === 0){
+    alert('You didn\'t miss any questions! Try the full quiz again.');
+    return;
+  }
+  resetQuiz([...missed]);
 });
 
+// Initialize
 renderQuestion();
 </script>
-
 </body>
 </html>
